@@ -36,33 +36,28 @@ export default function AboutPage() {
   }, []);
 
   const timelineItems = [
-    {
-      year: "2018",
-      title: "The Beginning",
-      description:
-        "Started modeling while studying fashion design, discovering my passion for streetwear culture.",
-      icon: Camera,
-    },
+   
+    
     {
       year: "2020",
+      title: "Beyond The Stars",
+      description:
+        "Launched my streetwear brand, merging all my passions into wearable art.",
+      icon: Sparkles,
+    },
+    {
+      year: "2022",
       title: "Acting Breakthrough",
       description:
         "Landed my first major role, bringing cosmic characters to life on screen.",
       icon: Star,
     },
     {
-      year: "2022",
+      year: "2024",
       title: "Published Author",
       description:
-        "Released my first book about finding your authentic style in a digital world.",
+        "Released my firs book Plenty Of Purpose",
       icon: BookOpen,
-    },
-    {
-      year: "2024",
-      title: "Beyond The Stars",
-      description:
-        "Launched my streetwear brand, merging all my passions into wearable art.",
-      icon: Sparkles,
     },
   ];
 
@@ -75,15 +70,15 @@ export default function AboutPage() {
     },
     {
       icon: Users,
-      title: "Community",
+      title: "Purpose",
       description:
-        "Building a family of dreamers who dare to shine differently.",
+        "A brand that is built on purpose and passion.",
     },
     {
       icon: Globe,
-      title: "Sustainability",
+      title: "Lupus Awareness",
       description:
-        "Creating fashion that respects our planet and future generations.",
+        "A portion of the proceeds from every book and piece of merch goes directly to the Lupus Foundation.",
     },
     {
       icon: Award,
@@ -168,7 +163,7 @@ export default function AboutPage() {
               ABOUT
             </Link>
             <Link
-              href="/contact"
+              href="#contact"
               className="text-xl hover:text-pink-300 transition-colors"
             >
               CONTACT
@@ -199,10 +194,15 @@ export default function AboutPage() {
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  A dreamer who believes fashion is the language of
-                  self-expression. Through modeling, acting, and writing,
-                  I&apos;ve discovered that style isn&apos;t just what you wear—it&apos;s
-                  who you are.
+                  This brand was born during the height of the COVID-19
+                  pandemic, inspired by my sister’s incredible strength as she
+                  battled lupus for years. Watching her fight with grace and
+                  resilience changed my life. I created this brand in her
+                  name—out of love, pain, and purpose. Lupus awareness isn’t
+                  just a cause—it’s personal. That’s why a portion of the
+                  proceeds from every book and piece of merch goes directly to
+                  the Lupus Foundation. Through this brand, I hope to honor her
+                  legacy and help others feel seen, supported, and empowered.
                 </p>
               </div>
 
@@ -212,8 +212,8 @@ export default function AboutPage() {
                     <Quote className="w-6 h-6 text-white" />
                   </div>
                   <blockquote className="text-lg italic text-gray-700">
-                  &ldquo;Fashion fades, but style is eternal. I create pieces that
-                    help you discover your own cosmic signature.&ldquo;
+                    &ldquo;Fashion fades, but style is eternal. I create pieces
+                    that help you discover your own cosmic signature.&ldquo;
                   </blockquote>
                 </div>
 
@@ -237,7 +237,7 @@ export default function AboutPage() {
                 {/* Main Image */}
                 <div className="relative z-10">
                   <Image
-                    src="/placeholder.svg?height=600&width=400&text=Star+Mitchell+Portrait"
+                    src="/star-cover-1.jpg?height=600&width=400&text=Star+Mitchell+Portrait"
                     alt="Star Mitchell"
                     width={400}
                     height={600}
@@ -364,7 +364,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-light mb-4">
               FOLLOW MY{" "}
               <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-               JOURNEY
+                JOURNEY
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -591,8 +591,8 @@ export default function AboutPage() {
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
                 Every piece in the Beyond The Stars collection starts with a
-                story. Whether I&apos;m on set, walking the runway, or writing late
-                into the night, inspiration strikes in the most unexpected
+                story. Whether I&apos;m on set, walking the runway, or writing
+                late into the night, inspiration strikes in the most unexpected
                 moments.
               </p>
               <p className="text-gray-600 leading-relaxed">

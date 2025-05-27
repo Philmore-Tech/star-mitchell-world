@@ -38,7 +38,7 @@ import { ProductCard } from "@/types/product";
 //   product: Product;
 // }
 
-export default function FashionWebsite() {
+export default function Homepage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [likedProducts, setLikedProducts] = useState<number[]>([]);
 
@@ -53,7 +53,7 @@ export default function FashionWebsite() {
   const featuredProducts: ProductCard[] = [
     {
       id: 1,
-      name: "Stellar Streetwear Hoodie",
+      name: "BTS Streetwear Hoodie",
       price: 89,
       originalPrice: 120,
       image: "/merch-1.png?height=400&width=1000",
@@ -64,7 +64,7 @@ export default function FashionWebsite() {
     },
     {
       id: 2,
-      name: "Cosmic Denim Jacket",
+      name: "BTS UNISEX T-Shirt",
       price: 145,
       originalPrice: 180,
       image: "/merch-2.png?height=400&width=500",
@@ -75,7 +75,7 @@ export default function FashionWebsite() {
     },
     {
       id: 3,
-      name: "Galaxy Print Tee",
+      name: "BTS Bucket Hat",
       price: 45,
       originalPrice: 60,
       image: "/merch-3.png?height=400&width=500",
@@ -86,7 +86,7 @@ export default function FashionWebsite() {
     },
     {
       id: 4,
-      name: "Nebula Cargo Pants",
+      name: "BTS Hat",
       price: 95,
       originalPrice: 125,
       image: "/merch-4.png?height=400&width=300",
@@ -159,7 +159,7 @@ export default function FashionWebsite() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-300 group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link
-              href="#about"
+              href="/about"
               className="hover:text-pink-300 transition-colors relative group"
             >
               ABOUT
@@ -580,10 +580,10 @@ export default function FashionWebsite() {
                   This book is dedicated to the struggles of my life due to
                   being parentified once my home became a crack house and
                   realizing my sister needed me as her caregiver due to her
-                  fight against Lupus. However, the story doesn&apos;t stop there
-                  because the nature of the game wasn&apos;t learning how to manage
-                  the pain of seeing the ones I love fight a battle most see as
-                  a losing one, but a journey of survival and family
+                  fight against Lupus. However, the story doesn&apos;t stop
+                  there because the nature of the game wasn&apos;t learning how
+                  to manage the pain of seeing the ones I love fight a battle
+                  most see as a losing one, but a journey of survival and family
                   togetherness in order to keep surviving within myself while
                   holding the strength of my family.
                 </p>

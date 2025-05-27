@@ -1,9 +1,9 @@
-import FashionWebsite from "./landing-page"
+import Homepage from "./homepage";
 
 export default function Page() {
   return (
     <div>
-      <FashionWebsite />
+      <Homepage />
     </div>
-  )
+  );
 }
