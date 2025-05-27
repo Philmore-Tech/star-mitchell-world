@@ -1,4 +1,4 @@
-import FashionWebsite from "@/app/landing-page";
+import FashionWebsite from "./landing-page";
 
 export default function Page() {
   return (
