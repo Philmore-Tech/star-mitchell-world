@@ -1,4 +1,4 @@
-import FashionWebsite from "../../fashion-website"
+import FashionWebsite from "../../landing-page"
 
 export default function Page() {
   return (

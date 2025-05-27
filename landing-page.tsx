@@ -19,6 +19,9 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { useState } from "react";
+import Head from "next/head";
+import Link from "next/link";
+import { ProductCard } from "@/types/product";
 
 export default function FashionWebsite() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,7 +35,7 @@ export default function FashionWebsite() {
     );
   };
 
-  const featuredProducts = [
+  const featuredProducts: ProductCard[] = [
     {
       id: 1,
       name: "Stellar Streetwear Hoodie",
@@ -127,7 +130,7 @@ export default function FashionWebsite() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-300 group-hover:w-full transition-all duration-300"></span>
             </a>
             <a
-              href="#products"
+              href="/products"
               className="hover:text-pink-300 transition-colors relative group"
             >
               PRODUCTS
@@ -301,8 +304,6 @@ export default function FashionWebsite() {
               </div>
 
               {/* Hero Image */}
-
-            
             </div>
           </div>
         </div>
@@ -337,12 +338,17 @@ export default function FashionWebsite() {
               <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg p-8 border border-pink-100">
                 <div className="flex items-center justify-center mb-4">
                   <Heart className="w-8 h-8 text-pink-500 mr-3" />
-                  <h3 className="text-xl font-semibold text-gray-800">Supporting The fight against Lupus</h3>
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    Supporting The fight against Lupus
+                  </h3>
                 </div>
                 <p className="text-gray-600 max-w-2xl mx-auto">
                   A portion of every purchase goes directly to the{" "}
-                  <span className="font-semibold text-purple-600">Lupus Foundation of America</span>{" "}
-                  to support research and help those affected by lupus. Together, we can make a difference beyond the stars.
+                  <span className="font-semibold text-purple-600">
+                    Lupus Foundation of America
+                  </span>{" "}
+                  to support research and help those affected by lupus.
+                  Together, we can make a difference beyond the stars.
                 </p>
               </div>
             </div>
@@ -372,73 +378,80 @@ export default function FashionWebsite() {
                 key={product.id}
                 className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={product.image || "/placeholder.svg"}
-                    alt={product.name}
-                    width={1000}
-                    height={400}
-                    className="w-full h-64 object-contain group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {product.isNew && (
-                    <Badge className="absolute top-3 left-3 bg-gradient-to-r from-pink-400 to-purple-400 text-white">
-                      NEW
-                    </Badge>
-                  )}
-                  <button
-                    onClick={() => toggleLike(product.id)}
-                    className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
-                  >
-                    <Heart
-                      className={`w-4 h-4 ${
-                        likedProducts.includes(product.id)
-                          ? "fill-pink-500 text-pink-500"
-                          : "text-gray-600"
-                      }`}
+                <Link href={`/products/${product.id}`}>
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      width={1000}
+                      height={400}
+                      className="w-full h-64 object-contain group-hover:scale-105 transition-transform duration-300"
                     />
-                  </button>
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                    <Button className="bg-white text-gray-900 hover:bg-gray-100">
-                      Quick View
-                    </Button>
-                  </div>
-                </div>
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-gray-500">
-                      {product.category}
-                    </span>
-                    <div className="flex items-center space-x-1">
-                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm text-gray-600">
-                        {product.rating}
-                      </span>
-                      <span className="text-sm text-gray-400">
-                        ({product.reviews})
-                      </span>
+                    {product.isNew && (
+                      <Badge className="absolute top-3 left-3 bg-gradient-to-r from-pink-400 to-purple-400 text-white">
+                        NEW
+                      </Badge>
+                    )}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        toggleLike(product.id);
+                      }}
+                      className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                    >
+                      <Heart
+                        className={`w-4 h-4 ${
+                          likedProducts.includes(product.id)
+                            ? "fill-pink-500 text-pink-500"
+                            : "text-gray-600"
+                        }`}
+                      />
+                    </button>
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                      <Button className="bg-white text-gray-900 hover:bg-gray-100">
+                        Quick View
+                      </Button>
                     </div>
                   </div>
-                  <h3 className="font-semibold mb-2 group-hover:text-pink-500 transition-colors">
-                    {product.name}
-                  </h3>
-                  <div className="flex items-center space-x-2 mb-3">
-                    <span className="text-lg font-bold">${product.price}</span>
-                    <span className="text-sm text-gray-500 line-through">
-                      ${product.originalPrice}
-                    </span>
-                    <span className="text-sm text-green-600 font-medium">
-                      {Math.round(
-                        ((product.originalPrice - product.price) /
-                          product.originalPrice) *
-                          100
-                      )}
-                      % OFF
-                    </span>
-                  </div>
-                  <Button className="w-full bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 text-white">
-                    Add to Cart
-                  </Button>
-                </CardContent>
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-gray-500">
+                        {product.category}
+                      </span>
+                      <div className="flex items-center space-x-1">
+                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-sm text-gray-600">
+                          {product.rating}
+                        </span>
+                        <span className="text-sm text-gray-400">
+                          ({product.reviews})
+                        </span>
+                      </div>
+                    </div>
+                    <h3 className="font-semibold mb-2 group-hover:text-pink-500 transition-colors">
+                      {product.name}
+                    </h3>
+                    <div className="flex items-center space-x-2 mb-3">
+                      <span className="text-lg font-bold">
+                        ${product.price}
+                      </span>
+                      <span className="text-sm text-gray-500 line-through">
+                        ${product.originalPrice}
+                      </span>
+                      <span className="text-sm text-green-600 font-medium">
+                        {Math.round(
+                          ((product.originalPrice - product.price) /
+                            product.originalPrice) *
+                            100
+                        )}
+                        % OFF
+                      </span>
+                    </div>
+                    <Button className="w-full bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 text-white">
+                      Add to Cart
+                    </Button>
+                  </CardContent>
+                </Link>
               </Card>
             ))}
           </div>
@@ -447,9 +460,12 @@ export default function FashionWebsite() {
             <Button
               variant="outline"
               className="px-8 py-3 border-gray-300 hover:border-pink-400 hover:text-pink-500"
+              asChild
             >
-              VIEW ALL PRODUCTS
-              <ArrowRight className="w-4 h-4 ml-2" />
+              <Link href="/products">
+                VIEW ALL PRODUCTS
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </Button>
           </div>
         </div>
@@ -511,9 +527,9 @@ export default function FashionWebsite() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light mb-4">
-              Plenty Of{" "}
+              PLENTY OF{" "}
               <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                Purpose
+                PURPOSE
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -533,7 +549,6 @@ export default function FashionWebsite() {
                 height={800}
                 className="w-full h-auto object-cover rounded-lg shadow-xl transform group-hover:scale-105 transition-transform duration-500"
               />
-            
             </div>
 
             {/* Book Details */}
@@ -624,7 +639,7 @@ export default function FashionWebsite() {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-light text-white mb-4">
-              JOIN THE COSMIC COMMUNITY
+              JOIN THE COMMUNITY
             </h2>
             <p className="text-white/90 mb-8">
               Be the first to know about new collections, exclusive drops, and
@@ -653,8 +668,7 @@ export default function FashionWebsite() {
                 BEYOND THE STARS
               </h3>
               <p className="text-gray-400 mb-4">
-                Where cosmic inspiration meets urban style. Discover streetwear
-                that transcends ordinary fashion.
+                Discover streetwear that transcends ordinary fashion.
               </p>
               <div className="flex space-x-4">
                 <Facebook className="w-5 h-5 hover:text-pink-400 transition-colors cursor-pointer" />
@@ -740,10 +754,46 @@ export default function FashionWebsite() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Beyond The Stars. All rights reserved.</p>
+            <p>&copy; 2025 Beyond The Stars. All rights reserved.</p>
           </div>
         </div>
       </footer>
     </div>
+  );
+}
+export async function getStaticPaths() {
+  // Fetch all product IDs
+  const products = await fetchProducts();
+  return {
+    paths: products.map((product) => ({
+      params: { id: product.id.toString() },
+    })),
+    fallback: "blocking",
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const product = await fetchProductById(params.id);
+  return {
+    props: {
+      product,
+      relatedProducts: await fetchRelatedProducts(product.category),
+    },
+    revalidate: 60, // Revalidate every minute
+  };
+}
+
+export function ProductSEO({ product }) {
+  return (
+    <Head>
+      <title>{`${product.name} | Beyond The Stars`}</title>
+      <meta name="description" content={product.description} />
+      <meta property="og:title" content={product.name} />
+      <meta property="og:description" content={product.description} />
+      <meta property="og:image" content={product.images[0]} />
+      <meta property="product:price:amount" content={product.price} />
+      <meta property="product:price:currency" content="USD" />
+      <link rel="canonical" href={`/products/${product.id}`} />
+    </Head>
   );
 }
