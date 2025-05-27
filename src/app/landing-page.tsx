@@ -19,9 +19,24 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { useState } from "react";
-import Head from "next/head";
 import Link from "next/link";
 import { ProductCard } from "@/types/product";
+
+// interface Product {
+//   id: number;
+//   name: string;
+//   price: number;
+//   description: string;
+//   image: string;
+//   category: string;
+//   rating: number;
+//   reviews: number;
+//   isNew: boolean;
+// }
+
+// interface ProductSEOProps {
+//   product: Product;
+// }
 
 export default function FashionWebsite() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -122,41 +137,41 @@ export default function FashionWebsite() {
         <nav className="relative z-10 flex items-center justify-between px-4 md:px-8 py-6">
           <div className="flex-1"></div>
           <div className="hidden md:flex items-center space-x-8 text-white font-medium">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="hover:text-pink-300 transition-colors relative group"
             >
               HOME
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-300 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a
+            </Link>
+            <Link
               href="/products"
               className="hover:text-pink-300 transition-colors relative group"
             >
               PRODUCTS
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-300 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a
+            </Link>
+            <Link
               href="#book"
               className="hover:text-pink-300 transition-colors relative group"
             >
               BOOK
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-300 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a
+            </Link>
+            <Link
               href="#about"
               className="hover:text-pink-300 transition-colors relative group"
             >
               ABOUT
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-300 group-hover:w-full transition-all duration-300"></span>
-            </a>
-            <a
+            </Link>
+            <Link
               href="#contact"
               className="hover:text-pink-300 transition-colors relative group"
             >
               CONTACT
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-300 group-hover:w-full transition-all duration-300"></span>
-            </a>
+            </Link>
           </div>
           <div className="flex-1 flex justify-end items-center space-x-4">
             <button
@@ -192,36 +207,36 @@ export default function FashionWebsite() {
               <div className="w-16 h-px bg-gradient-to-r from-pink-400 to-purple-400"></div>
             </div>
             <div className="flex flex-col items-center space-y-6 mt-8">
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="text-xl hover:text-pink-300 transition-colors"
               >
                 HOME
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#products"
                 className="text-xl hover:text-pink-300 transition-colors"
               >
                 PRODUCTS
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#book"
                 className="text-xl hover:text-pink-300 transition-colors"
               >
                 BOOK
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#about"
                 className="text-xl hover:text-pink-300 transition-colors"
               >
                 ABOUT
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#contact"
                 className="text-xl hover:text-pink-300 transition-colors"
               >
                 CONTACT
-              </a>
+              </Link>
             </div>
             <div className="flex space-x-6 mt-8">
               <Facebook className="w-6 h-6 text-white hover:text-pink-500 transition-colors cursor-pointer" />
@@ -565,8 +580,8 @@ export default function FashionWebsite() {
                   This book is dedicated to the struggles of my life due to
                   being parentified once my home became a crack house and
                   realizing my sister needed me as her caregiver due to her
-                  fight against Lupus. However, the story doesn't stop there
-                  because the nature of the game wasn't learning how to manage
+                  fight against Lupus. However, the story doesn&apos;t stop there
+                  because the nature of the game wasn&apos;t learning how to manage
                   the pain of seeing the ones I love fight a battle most see as
                   a losing one, but a journey of survival and family
                   togetherness in order to keep surviving within myself while
@@ -761,39 +776,61 @@ export default function FashionWebsite() {
     </div>
   );
 }
-export async function getStaticPaths() {
-  // Fetch all product IDs
-  const products = await fetchProducts();
-  return {
-    paths: products.map((product) => ({
-      params: { id: product.id.toString() },
-    })),
-    fallback: "blocking",
-  };
-}
 
-export async function getStaticProps({ params }) {
-  const product = await fetchProductById(params.id);
-  return {
-    props: {
-      product,
-      relatedProducts: await fetchRelatedProducts(product.category),
-    },
-    revalidate: 60, // Revalidate every minute
-  };
-}
+// async function fetchProducts(): Promise<Product[]> {
+//   // TODO: Implement actual API call
+//   return [];
+// }
 
-export function ProductSEO({ product }) {
-  return (
-    <Head>
-      <title>{`${product.name} | Beyond The Stars`}</title>
-      <meta name="description" content={product.description} />
-      <meta property="og:title" content={product.name} />
-      <meta property="og:description" content={product.description} />
-      <meta property="og:image" content={product.images[0]} />
-      <meta property="product:price:amount" content={product.price} />
-      <meta property="product:price:currency" content="USD" />
-      <link rel="canonical" href={`/products/${product.id}`} />
-    </Head>
-  );
-}
+// async function fetchProductById(id: string): Promise<Product> {
+
+//   return {
+//     id: 0,
+//     name: "",
+//     price: 0,
+//     description: "",
+//     image: "",
+//     category: "",
+//     rating: 0,
+//     reviews: 0,
+//     isNew: false,
+//   };
+// }
+
+// async function fetchRelatedProducts(category: string): Promise<Product[]> {
+//   // TODO: Implement actual API call
+//   return [];
+// }
+
+// export async function getStaticPaths() {
+//   const products = await fetchProducts();
+//   return {
+//     paths: products.map((product: Product) => ({
+//       params: { id: product.id.toString() },
+//     })),
+//     fallback: false,
+//   };
+// }
+
+// export async function getStaticProps({ params }: { params: { id: string } }) {
+//   const product = await fetchProductById(params.id);
+//   const relatedProducts = await fetchRelatedProducts(product.category);
+//   return {
+//     props: {
+//       product,
+//       relatedProducts,
+//     },
+//   };
+// }
+
+// export function ProductSEO({ product }: ProductSEOProps) {
+//   return (
+//     <Head>
+//       <title>{product.name} | Beyond The Stars</title>
+//       <meta name="description" content={product.description} />
+//       <meta property="og:title" content={product.name} />
+//       <meta property="og:description" content={product.description} />
+//       <meta property="og:image" content={product.image} />
+//     </Head>
+//   );
+// }

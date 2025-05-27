@@ -3,8 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ChevronDown,
-  Filter,
   Heart,
   ShoppingBag,
   Facebook,
@@ -14,27 +12,11 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Card, CardContent } from "@/components/ui/card";
 import { Grid, List, Star } from "lucide-react";
 import { useState } from "react";
 import { ProductCard } from "@/types/product";
 import { Menu, X } from "lucide-react";
-
-const colorMap = {
-  black: "bg-black",
-  pink: "bg-pink-500",
-  teal: "bg-teal-500",
-  purple: "bg-purple-500",
-  green: "bg-green-500",
-  red: "bg-red-500",
-  blue: "bg-blue-500",
-};
 
 export default function ProductsPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

@@ -1,8 +1,8 @@
-"use client"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+"use client";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   ShoppingCart,
   Facebook,
@@ -20,69 +20,77 @@ import {
   Users,
   Globe,
   Award,
-} from "lucide-react"
-import { useState, useEffect } from "react"
+} from "lucide-react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function AboutPage() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeTimelineItem, setActiveTimelineItem] = useState(0)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeTimelineItem, setActiveTimelineItem] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveTimelineItem((prev) => (prev + 1) % 4)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
+      setActiveTimelineItem((prev) => (prev + 1) % 4);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const timelineItems = [
     {
       year: "2018",
       title: "The Beginning",
-      description: "Started modeling while studying fashion design, discovering my passion for streetwear culture.",
+      description:
+        "Started modeling while studying fashion design, discovering my passion for streetwear culture.",
       icon: Camera,
     },
     {
       year: "2020",
       title: "Acting Breakthrough",
-      description: "Landed my first major role, bringing cosmic characters to life on screen.",
+      description:
+        "Landed my first major role, bringing cosmic characters to life on screen.",
       icon: Star,
     },
     {
       year: "2022",
       title: "Published Author",
-      description: "Released my first book about finding your authentic style in a digital world.",
+      description:
+        "Released my first book about finding your authentic style in a digital world.",
       icon: BookOpen,
     },
     {
       year: "2024",
       title: "Beyond The Stars",
-      description: "Launched my streetwear brand, merging all my passions into wearable art.",
+      description:
+        "Launched my streetwear brand, merging all my passions into wearable art.",
       icon: Sparkles,
     },
-  ]
+  ];
 
   const values = [
     {
       icon: Heart,
       title: "Authenticity",
-      description: "Every piece reflects genuine self-expression and personal truth.",
+      description:
+        "Every piece reflects genuine self-expression and personal truth.",
     },
     {
       icon: Users,
       title: "Community",
-      description: "Building a family of dreamers who dare to shine differently.",
+      description:
+        "Building a family of dreamers who dare to shine differently.",
     },
     {
       icon: Globe,
       title: "Sustainability",
-      description: "Creating fashion that respects our planet and future generations.",
+      description:
+        "Creating fashion that respects our planet and future generations.",
     },
     {
       icon: Award,
       title: "Quality",
       description: "Crafting pieces that last, both in style and construction.",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -94,25 +102,38 @@ export default function AboutPage() {
           </h1>
         </div>
         <div className="hidden md:flex items-center space-x-8 text-gray-700 font-medium">
-          <a href="/" className="hover:text-pink-500 transition-colors">
+          <Link href="/" className="hover:text-pink-500 transition-colors">
             HOME
-          </a>
-          <a href="/products" className="hover:text-pink-500 transition-colors">
+          </Link>
+          <Link
+            href="/products"
+            className="hover:text-pink-500 transition-colors"
+          >
             PRODUCTS
-          </a>
-          <a href="/about" className="text-pink-500 border-b-2 border-pink-500 pb-1">
+          </Link>
+          <Link
+            href="/about"
+            className="text-pink-500 border-b-2 border-pink-500 pb-1"
+          >
             ABOUT
-          </a>
-          <a href="/contact" className="hover:text-pink-500 transition-colors">
+          </Link>
+          <Link
+            href="/contact"
+            className="hover:text-pink-500 transition-colors"
+          >
             CONTACT
-          </a>
+          </Link>
         </div>
         <div className="flex items-center space-x-4">
           <button
             className="md:hidden text-gray-700 hover:text-pink-500 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
           <div className="relative">
             <ShoppingCart className="w-6 h-6 text-gray-700 hover:text-pink-500 transition-colors cursor-pointer" />
@@ -131,18 +152,27 @@ export default function AboutPage() {
       >
         <div className="h-full w-full flex flex-col items-center justify-center space-y-8 text-white">
           <div className="flex flex-col items-center space-y-6">
-            <a href="/" className="text-xl hover:text-pink-300 transition-colors">
+            <Link
+              href="/"
+              className="text-xl hover:text-pink-300 transition-colors"
+            >
               HOME
-            </a>
-            <a href="/products" className="text-xl hover:text-pink-300 transition-colors">
+            </Link>
+            <Link
+              href="/products"
+              className="text-xl hover:text-pink-300 transition-colors"
+            >
               PRODUCTS
-            </a>
-            <a href="/about" className="text-xl text-pink-300">
+            </Link>
+            <Link href="/about" className="text-xl text-pink-300">
               ABOUT
-            </a>
-            <a href="/contact" className="text-xl hover:text-pink-300 transition-colors">
+            </Link>
+            <Link
+              href="/contact"
+              className="text-xl hover:text-pink-300 transition-colors"
+            >
               CONTACT
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -163,14 +193,16 @@ export default function AboutPage() {
                   Model • Actress • Author • Designer
                 </Badge>
                 <h1 className="text-4xl md:text-6xl font-light leading-tight">
-                  Hi, I'm{" "}
+                  Hi, I&apos;m{" "}
                   <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
                     Star Mitchell
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  A dreamer who believes fashion is the language of self-expression. Through modeling, acting, and
-                  writing, I've discovered that style isn't just what you wear—it's who you are.
+                  A dreamer who believes fashion is the language of
+                  self-expression. Through modeling, acting, and writing,
+                  I&apos;ve discovered that style isn&apos;t just what you wear—it&apos;s
+                  who you are.
                 </p>
               </div>
 
@@ -180,8 +212,8 @@ export default function AboutPage() {
                     <Quote className="w-6 h-6 text-white" />
                   </div>
                   <blockquote className="text-lg italic text-gray-700">
-                    "Fashion fades, but style is eternal. I create pieces that help you discover your own cosmic
-                    signature."
+                  &ldquo;Fashion fades, but style is eternal. I create pieces that
+                    help you discover your own cosmic signature.&ldquo;
                   </blockquote>
                 </div>
 
@@ -234,14 +266,15 @@ export default function AboutPage() {
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              From small-town dreams to cosmic creations, every step has led to this moment
+              From small-town dreams to cosmic creations, every step has led to
+              this moment
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {timelineItems.map((item, index) => {
-                const Icon = item.icon
+                const Icon = item.icon;
                 return (
                   <Card
                     key={index}
@@ -264,16 +297,20 @@ export default function AboutPage() {
                       </div>
                       <div
                         className={`text-2xl font-bold mb-2 transition-colors ${
-                          activeTimelineItem === index ? "text-pink-500" : "text-gray-800"
+                          activeTimelineItem === index
+                            ? "text-pink-500"
+                            : "text-gray-800"
                         }`}
                       >
                         {item.year}
                       </div>
                       <h3 className="font-semibold mb-2">{item.title}</h3>
-                      <p className="text-sm text-gray-600">{item.description}</p>
+                      <p className="text-sm text-gray-600">
+                        {item.description}
+                      </p>
                     </CardContent>
                   </Card>
-                )
+                );
               })}
             </div>
           </div>
@@ -291,13 +328,14 @@ export default function AboutPage() {
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              These values guide every decision, every design, and every interaction with our cosmic community
+              These values guide every decision, every design, and every
+              interaction with our cosmic community
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => {
-              const Icon = value.icon
+              const Icon = value.icon;
               return (
                 <Card
                   key={index}
@@ -313,7 +351,7 @@ export default function AboutPage() {
                     <p className="text-gray-600">{value.description}</p>
                   </CardContent>
                 </Card>
-              )
+              );
             })}
           </div>
         </div>
@@ -326,11 +364,12 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-light mb-4">
               FOLLOW MY{" "}
               <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                COSMIC JOURNEY
+               JOURNEY
               </span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Get behind-the-scenes content, style inspiration, and cosmic vibes across all platforms
+              Get behind-the-scenes content, style inspiration, and cosmic vibes
+              across all platforms
             </p>
           </div>
 
@@ -342,9 +381,15 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Instagram className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold mb-2 group-hover:text-pink-500 transition-colors">Instagram</h3>
-                <p className="text-sm text-gray-600 mb-4">Daily style inspiration & behind-the-scenes moments</p>
-                <div className="text-2xl font-bold text-pink-500 mb-1">125K</div>
+                <h3 className="font-semibold mb-2 group-hover:text-pink-500 transition-colors">
+                  Instagram
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Daily style inspiration & behind-the-scenes moments
+                </p>
+                <div className="text-2xl font-bold text-pink-500 mb-1">
+                  125K
+                </div>
                 <div className="text-xs text-gray-500">Followers</div>
               </CardContent>
             </Card>
@@ -355,9 +400,15 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <div className="w-8 h-8 text-white font-bold text-lg">T</div>
                 </div>
-                <h3 className="font-semibold mb-2 group-hover:text-purple-500 transition-colors">TikTok</h3>
-                <p className="text-sm text-gray-600 mb-4">Fashion tips, styling hacks & cosmic content</p>
-                <div className="text-2xl font-bold text-purple-500 mb-1">89K</div>
+                <h3 className="font-semibold mb-2 group-hover:text-purple-500 transition-colors">
+                  TikTok
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Fashion tips, styling hacks & cosmic content
+                </p>
+                <div className="text-2xl font-bold text-purple-500 mb-1">
+                  89K
+                </div>
                 <div className="text-xs text-gray-500">Followers</div>
               </CardContent>
             </Card>
@@ -368,8 +419,12 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-gradient-to-r from-red-400 to-pink-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Youtube className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold mb-2 group-hover:text-red-500 transition-colors">YouTube</h3>
-                <p className="text-sm text-gray-600 mb-4">Long-form content, vlogs & design process</p>
+                <h3 className="font-semibold mb-2 group-hover:text-red-500 transition-colors">
+                  YouTube
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Long-form content, vlogs & design process
+                </p>
                 <div className="text-2xl font-bold text-red-500 mb-1">45K</div>
                 <div className="text-xs text-gray-500">Subscribers</div>
               </CardContent>
@@ -381,8 +436,12 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Twitter className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-semibold mb-2 group-hover:text-blue-500 transition-colors">Twitter</h3>
-                <p className="text-sm text-gray-600 mb-4">Thoughts, updates & cosmic conversations</p>
+                <h3 className="font-semibold mb-2 group-hover:text-blue-500 transition-colors">
+                  Twitter
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Thoughts, updates & cosmic conversations
+                </p>
                 <div className="text-2xl font-bold text-blue-500 mb-1">32K</div>
                 <div className="text-xs text-gray-500">Followers</div>
               </CardContent>
@@ -438,7 +497,9 @@ export default function AboutPage() {
                     </div>
                     <div className="flex-1">
                       <p className="font-medium text-sm">{video.title}</p>
-                      <p className="text-xs text-gray-500">{video.views} views</p>
+                      <p className="text-xs text-gray-500">
+                        {video.views} views
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -453,14 +514,22 @@ export default function AboutPage() {
               </h3>
               <div className="space-y-3">
                 {[
-                  { title: "My Design Process: From Sketch to Reality", duration: "12:45" },
+                  {
+                    title: "My Design Process: From Sketch to Reality",
+                    duration: "12:45",
+                  },
                   { title: "Cosmic Collection Launch Vlog", duration: "8:32" },
-                  { title: "Q&A: Your Fashion Questions Answered", duration: "15:20" },
+                  {
+                    title: "Q&A: Your Fashion Questions Answered",
+                    duration: "15:20",
+                  },
                 ].map((video, i) => (
                   <div key={i} className="group cursor-pointer">
                     <div className="relative mb-2">
                       <Image
-                        src={`/placeholder.svg?height=100&width=180&text=YT+Video+${i + 1}`}
+                        src={`/placeholder.svg?height=100&width=180&text=YT+Video+${
+                          i + 1
+                        }`}
                         alt={`YouTube video ${i + 1}`}
                         width={180}
                         height={100}
@@ -475,7 +544,9 @@ export default function AboutPage() {
                         {video.duration}
                       </span>
                     </div>
-                    <p className="font-medium text-sm group-hover:text-red-500 transition-colors">{video.title}</p>
+                    <p className="font-medium text-sm group-hover:text-red-500 transition-colors">
+                      {video.title}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -484,7 +555,9 @@ export default function AboutPage() {
 
           {/* Call to Action */}
           <div className="text-center mt-12">
-            <p className="text-gray-600 mb-6">Join the cosmic community across all platforms</p>
+            <p className="text-gray-600 mb-6">
+              Join the cosmic community across all platforms
+            </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button className="bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 text-white px-6 py-2 rounded-full flex items-center space-x-2">
                 <Instagram className="w-4 h-4" />
@@ -517,13 +590,16 @@ export default function AboutPage() {
                 </span>
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Every piece in the Beyond The Stars collection starts with a story. Whether I'm on set, walking the
-                runway, or writing late into the night, inspiration strikes in the most unexpected moments.
+                Every piece in the Beyond The Stars collection starts with a
+                story. Whether I&apos;m on set, walking the runway, or writing late
+                into the night, inspiration strikes in the most unexpected
+                moments.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                My studio is where magic happens—sketches scattered across tables, fabric swatches pinned to walls, and
-                mood boards that capture the essence of cosmic dreams. Each design goes through countless iterations
-                until it feels just right.
+                My studio is where magic happens—sketches scattered across
+                tables, fabric swatches pinned to walls, and mood boards that
+                capture the essence of cosmic dreams. Each design goes through
+                countless iterations until it feels just right.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 text-white px-6 py-3 rounded-full">
@@ -580,10 +656,13 @@ export default function AboutPage() {
       <section className="py-20 bg-gradient-to-r from-pink-400 to-purple-400">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-light text-white mb-6">READY TO JOIN THE COSMIC COMMUNITY?</h2>
+            <h2 className="text-3xl md:text-4xl font-light text-white mb-6">
+              READY TO JOIN THE COMMUNITY?
+            </h2>
             <p className="text-white/90 text-lg mb-8 leading-relaxed">
-              Be part of a movement that celebrates individuality, creativity, and the courage to shine differently.
-              Your cosmic journey starts here.
+              Be part of a movement that celebrates individuality, creativity,
+              and the courage to shine differently. Your cosmic journey starts
+              here.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-3 rounded-full font-medium">
@@ -605,9 +684,12 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-light tracking-wider mb-4">BEYOND THE STARS</h3>
+              <h3 className="text-xl font-light tracking-wider mb-4">
+                BEYOND THE STARS
+              </h3>
               <p className="text-gray-400 mb-4">
-                Where cosmic inspiration meets urban style. Discover streetwear that transcends ordinary fashion.
+                Where cosmic inspiration meets urban style. Discover streetwear
+                that transcends ordinary fashion.
               </p>
               <div className="flex space-x-4">
                 <Facebook className="w-5 h-5 hover:text-pink-400 transition-colors cursor-pointer" />
@@ -698,5 +780,5 @@ export default function AboutPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

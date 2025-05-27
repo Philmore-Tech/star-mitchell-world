@@ -1,26 +1,23 @@
 "use client";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
-  ShoppingCart,
-  Heart,
-  Star,
-  Minus,
-  Plus,
-  Truck,
-  Shield,
-  RotateCcw,
-  ArrowLeft,
-  Share2,
   ChevronLeft,
   ChevronRight,
+  Heart,
+  Minus,
+  Plus,
+  ShoppingCart,
+  Star,
+  Truck,
 } from "lucide-react";
-import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { Product } from "@/types/product";
+
+import { ArrowLeft, RotateCcw, Shield, Share2 } from "lucide-react";
 
 interface ProductDetailProps {
   product: Product;
