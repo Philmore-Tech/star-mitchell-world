@@ -5,9 +5,9 @@ import ProductDetail from "@/app/product-detail";
 const products = [
   {
     id: 1,
-    name: "Stellar Streetwear Hoodie",
-    price: 89,
-    originalPrice: 120,
+    name: "BTS Dark Blue Hoodie",
+    price: 45,
+    originalPrice: 60,
     rating: 4.8,
     reviews: 124,
     category: "Hoodies",
@@ -26,17 +26,17 @@ const products = [
     sizes: ["XS", "S", "M", "L", "XL", "XXL"],
     colors: [
       {
-        name: "Cosmic Black",
+        name: "Black",
         hex: "#1a1a1a",
         image: "/merch-1.png?height=600&width=600",
       },
       {
-        name: "Nebula Purple",
+        name: "Purple",
         hex: "#6b46c1",
-        image: "/merch-1-purple.png?height=600&width=600",
+        image: "/hoodies/dark-purple-hoddie.png?height=600&width=600",
       },
       {
-        name: "Stellar Pink",
+        name: "Pink",
         hex: "#ec4899",
         image: "/merch-1-pink.png?height=600&width=600",
       },
